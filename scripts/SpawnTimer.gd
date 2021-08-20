@@ -5,4 +5,4 @@ func _on_LevelTimer_timeout():
 	print(wait_time)
 	var main = get_tree().current_scene
 	if main.is_in_group("World"):
-		main.set_infection_rate(0.5 - wait_time)
+		main.set_infection_rate(1.0 - wait_time)

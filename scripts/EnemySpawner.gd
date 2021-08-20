@@ -16,7 +16,7 @@ func spawn_enemy():
 	var spawn_location = get_spawn_position()
 	var enemy = Enemy.instance()
 	var main = get_tree().current_scene
-	main.add_child(enemy)
+	self.add_child(enemy)
 	enemy.global_position = spawn_location
 
 func _on_SpawnTimer_timeout():

@@ -3,9 +3,13 @@ extends Node
 var score : int = 0 setget set_score
 var infection_rate : float = 0.0 setget set_infection_rate
 
+const GameOverMessage = preload("res://scenes/GameOver.tscn")
+
+onready var player = $player
 onready var scoreLabel = $ScoreLabel
 onready var rateLabel = $InfectionRateLabel
 onready var enemySpawner = $EnemySpawner
+onready var spawnTimer = $EnemySpawner/SpawnTimer
 
 #score logic
 func set_score(value):
@@ -27,10 +31,15 @@ func _ready():
 	set_infection_rate(0.1)
 
 func _on_GameTimer_timeout():
-	end_game(score)
+	end_game()
 	
-func end_game(score):
-	enemySpawner.queue_free()
-	yield(get_tree().create_timer(3.2), "timeout")
-	print("Game over! Your score: ", score)
-	get_tree().change_scene("res://scenes/GameOver.tscn")
+func end_game():
+	spawnTimer.queue_free()
+	yield(get_tree().create_timer(4.2), "timeout")
+	player.queue_free()
+	scoreLabel.queue_free()
+	rateLabel.queue_free()
+	var gameOver = GameOverMessage.instance()
+	var main = get_tree().current_scene
+	main.add_child(gameOver)
+	gameOver.set_score(score)
