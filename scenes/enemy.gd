@@ -1,6 +1,6 @@
 extends Node2D
 
-signal healed
+signal healed(id)
 signal popped
 
 export(float) var growth_factor = 0
@@ -37,7 +37,6 @@ func _process(_delta):
 			grow(-growth_factor)
 		DEAD:
 			growth_factor = 0
-			print("dead")
 			queue_free()
 
 func grow(amt):
@@ -49,17 +48,29 @@ func _on_Area2D_body_entered(_body):
 	state = SHRINKING
 
 func check_dead():
-	if scale.x < minimum_size:
-		print("healed")
-		state = DEAD
-	elif scale.x > maximum_size :
-		print("popped")
-		state = DEAD
-	else:
-		pass
+	var main = get_tree().current_scene
+	if main.is_in_group("World"):
+		if scale.x < minimum_size:
+			add_to_score()
+			state = DEAD
+		elif scale.x > maximum_size:
+			reduce_score()
+			state = DEAD
+		else:
+			pass
 
 func calculate_instability(current_size):
 		instability = remap_range(current_size, minimum_size, maximum_size, 0, 1)
 
 func remap_range(value, InputA, InputB, OutputA, OutputB):
 	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA
+
+func add_to_score():
+	var main = get_tree().current_scene
+	if main.is_in_group("World"):
+		main.score += 1
+
+func reduce_score():
+	var main = get_tree().current_scene
+	if main.is_in_group("World"):
+		main.score -= 1

@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tex/circle_01.png" type="Texture" id=1]
-[ext_resource path="res://scenes/growth_body.gd" type="Script" id=2]
+[ext_resource path="res://scenes/enemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.1209
 
-[node name="growth_body" type="Node2D"]
+[node name="enemy" type="Node2D"]
 script = ExtResource( 2 )
 growth_factor = 0.01
 maximum_size = 4.0
-color_a = Color( 0.968627, 0.694118, 0.0470588, 0.0392157 )
-color_b = Color( 0.901961, 0.180392, 0.180392, 1 )
+color_a = Color( 0.980392, 0.980392, 0.980392, 0 )
+color_b = Color( 0.980392, 0.980392, 0.980392, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -22,23 +22,6 @@ collision_mask = 2
 [node name="Collision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -265.2
-margin_top = -242.726
-margin_right = -215.2
-margin_bottom = -192.726
-rect_min_size = Vector2( 50, 50 )
-rect_scale = Vector2( 10, 10 )
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
+[connection signal="healed" from="." to="." method="_on_growth_body_healed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
