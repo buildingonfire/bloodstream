@@ -92,5 +92,10 @@ script = ExtResource( 2 )
 wait_time = 5.0
 autostart = true
 
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_Timer_timeout"]
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 125.0
+one_shot = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="SpawnTimer" method="_on_LevelTimer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

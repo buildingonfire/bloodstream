@@ -52,7 +52,7 @@ func check_dead():
 			add_to_score()
 			state = DEAD
 		elif scale.x > maximum_size:
-			reduce_score()
+			#reduce_score()
 			state = DEAD
 		else:
 			pass

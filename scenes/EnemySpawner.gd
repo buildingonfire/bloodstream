@@ -19,5 +19,8 @@ func spawn_enemy():
 	main.add_child(enemy)
 	enemy.global_position = spawn_location
 
-func _on_Timer_timeout():
+func _on_SpawnTimer_timeout():
 	spawn_enemy()
+
+func _on_GameTimer_timeout():
+	queue_free()

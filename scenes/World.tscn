@@ -24,10 +24,20 @@ z_index = 1
 [node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
 
 [node name="ScoreLabel" type="Label" parent="."]
-margin_left = 640.0
-margin_top = 20.0
-margin_right = 771.0
-margin_bottom = 76.0
+margin_left = 352.118
+margin_top = 22.8316
+margin_right = 483.118
+margin_bottom = 78.8316
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfectionRateLabel" type="Label" parent="."]
+margin_left = 842.933
+margin_top = 11.5051
+margin_right = 973.933
+margin_bottom = 67.5051
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
