@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/EnemySpawner.tscn" type="PackedScene" id=3]
+
+[node name="World" type="Node"]
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 115.363, 340.221 )
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 3 )]
