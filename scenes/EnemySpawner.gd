@@ -4,6 +4,9 @@ const Enemy = preload("res://scenes/enemy.tscn")
 
 onready var spawnPoints = $SpawnPoints
 
+func _ready():
+	randomize()
+
 func get_spawn_position():
 	var points = spawnPoints.get_children()
 	points.shuffle()

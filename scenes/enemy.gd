@@ -22,8 +22,6 @@ var instability = 0.0
 onready var collision : CollisionShape2D = $Area2D/Collision
 onready var area : Area2D = $Area2D
 onready var sprite : Sprite = $Sprite
-onready var idleTimer : Timer = $Timer
-onready var label : Label = $Label
 
 func _process(_delta):
 	check_dead()
@@ -31,7 +29,7 @@ func _process(_delta):
 	match state:
 		GROWING:
 			grow(growth_factor)
-			growth_factor *= 1.001
+			growth_factor *= 1.01
 			sprite.modulate = lerp(color_a, color_b, instability)
 		SHRINKING:
 			grow(-growth_factor)
@@ -67,8 +65,8 @@ func remap_range(value, InputA, InputB, OutputA, OutputB):
 
 func add_to_score():
 	var main = get_tree().current_scene
-	if main.is_in_group("World"):
-		main.score += 1
+	#if main.is_in_group("World"):
+	main.score += 1
 
 func reduce_score():
 	var main = get_tree().current_scene
