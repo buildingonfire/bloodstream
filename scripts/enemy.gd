@@ -1,8 +1,5 @@
 extends Node2D
 
-signal healed(id)
-signal popped
-
 export(float) var growth_factor = 0
 export(float) var minimum_size = 0.25
 export(float) var maximum_size = 2.25
@@ -52,7 +49,6 @@ func check_dead():
 			add_to_score()
 			state = DEAD
 		elif scale.x > maximum_size:
-			#reduce_score()
 			state = DEAD
 		else:
 			pass
@@ -65,7 +61,6 @@ func remap_range(value, InputA, InputB, OutputA, OutputB):
 
 func add_to_score():
 	var main = get_tree().current_scene
-	#if main.is_in_group("World"):
 	main.score += 1
 
 func reduce_score():

@@ -15,7 +15,7 @@ func get_spawn_position():
 func spawn_enemy():
 	var spawn_location = get_spawn_position()
 	var enemy = Enemy.instance()
-	var main = get_tree().current_scene
+	#var main = get_tree().current_scene
 	self.add_child(enemy)
 	enemy.global_position = spawn_location
 

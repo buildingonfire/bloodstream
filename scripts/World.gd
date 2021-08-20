@@ -14,13 +14,13 @@ onready var spawnTimer = $EnemySpawner/SpawnTimer
 #score logic
 func set_score(value):
 	score = value
-	update_score_label(score)
+	update_score_label()
 
 func set_infection_rate(value):
 	infection_rate = value
 	update_rate_label(infection_rate)
 
-func update_score_label(score):
+func update_score_label():
 	scoreLabel.text = "Score = " + String(score)
 	
 func update_rate_label(rate):
