@@ -9,6 +9,7 @@ radius = 32.1209
 [node name="growth_body" type="Node2D"]
 script = ExtResource( 2 )
 growth_factor = 0.01
+maximum_size = 4.0
 color_a = Color( 0.968627, 0.694118, 0.0470588, 0.0392157 )
 color_b = Color( 0.901961, 0.180392, 0.180392, 1 )
 
@@ -20,10 +21,6 @@ collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -45,4 +42,3 @@ __meta__ = {
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
