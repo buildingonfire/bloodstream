@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/EnemySpawner.gd" type="Script" id=1]
-[ext_resource path="res://scenes/SpawnTimer.gd" type="Script" id=2]
+[ext_resource path="res://scripts/EnemySpawner.gd" type="Script" id=1]
+[ext_resource path="res://scripts/SpawnTimer.gd" type="Script" id=2]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource( 1 )
@@ -92,10 +92,5 @@ script = ExtResource( 2 )
 wait_time = 5.0
 autostart = true
 
-[node name="GameTimer" type="Timer" parent="."]
-wait_time = 125.0
-one_shot = true
-
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="SpawnTimer" method="_on_LevelTimer_timeout"]
-[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]

@@ -21,6 +21,3 @@ func spawn_enemy():
 
 func _on_SpawnTimer_timeout():
 	spawn_enemy()
-
-func _on_GameTimer_timeout():
-	queue_free()
