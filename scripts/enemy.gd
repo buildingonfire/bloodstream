@@ -27,7 +27,7 @@ func _process(_delta):
 		GROWING:
 			grow(growth_factor)
 			growth_factor *= 1.01
-			sprite.modulate = lerp(color_a, color_b, instability)
+			sprite.modulate = lerp(Color("#FFFFFF"), color_b, instability)
 		SHRINKING:
 			grow(-growth_factor)
 		DEAD:
@@ -40,6 +40,7 @@ func grow(amt):
 	prev_growth = amt
 
 func _on_Area2D_body_entered(_body):
+	sprite.modulate = color_a
 	state = SHRINKING
 
 func check_dead():

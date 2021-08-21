@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/bootsplash.png-449ab3a4934d80b82dad95b5f15e866c.image"
+
+[deps]
+
+source_file="res://tex/bootsplash.png"
+dest_files=[ "res://.import/bootsplash.png-449ab3a4934d80b82dad95b5f15e866c.image" ]
+
+[params]
+

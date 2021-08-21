@@ -12,6 +12,8 @@ config_version=4
 
 config/name="GWJ36"
 run/main_scene="res://scenes/World.tscn"
+boot_splash/image="res://tex/bootsplash.png"
+boot_splash/bg_color=Color( 0.0784314, 0.133333, 0.25098, 1 )
 config/icon="res://img/icon.png"
 
 [display]
